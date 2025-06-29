@@ -1,28 +1,17 @@
 import React, { useState } from 'react';
 import {ShipWheelIcon} from 'lucide-react'
 import {Link } from 'react-router'
-import { useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
-import { axiosInstance } from '../lib/axios';
-import { signup } from '../lib/api';
+import useSignup from '../hooks/useSignup';
 
 const SignupPage = () => {
 
   const [signupData, setsignupData] = useState({ fullName: '', email: '', password: '' });
 
-  const queryClient = useQueryClient();
-
-  const {mutate: signupMutation, isPending, error} = useMutation({
-    mutationFn: signup,
-    onSuccess: () => queryClient.invalidateQueries({queryKey: ['authUser']}),
-  })
+  const {signupMutation, isPending, error} = useSignup();
 
   const handleSignup = async (e) => {
     e.preventDefault();
-
     signupMutation(signupData);
-
-
   };
 
   
