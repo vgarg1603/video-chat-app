@@ -42,7 +42,7 @@ const SignupPage = () => {
               <div className='space-y-4 mb-4'>
                   <h2 className='text-xl font-semibold'>Create an Account</h2>
                   <p className='text-sm opacity-70'>
-                    Join Omegle and start your language adventure!
+                    Join Streamify and start your language adventure!
                   </p>
               </div>
 
